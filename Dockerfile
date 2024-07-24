@@ -1,4 +1,7 @@
 FROM alpine:latest
-COPY hello.txt /hello.txt
-ENV 
-CMD ["cat","hello.txt"]
+ENV name_env=value_env
+RUN apk update && \
+    apk add --no-cache curl
+WORKDIR /app
+COPY . /app
+CMD ["bash"]
